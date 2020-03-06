@@ -34,24 +34,28 @@ The choosen algorihm was Mupti-agent DDPG and some of the tweaked hyperparameter
 
 #### Model  
 
-For the Actor and Critic model file `model.py` we used a "" , we tested different activation functions like relu, enu, relu6, celu and what it gave us a faster convertion rate was relu.  
+For the Actor and Critic model file `model.py`,we used a one linear layer followup by a batch layer and two linear layers. For the Critic we used a drop out with value .19. We tested different activation functions like relu, enu, relu6, celu and what it gave us a faster conversion rate was relu.  
 For the size of the hidden layers we tested 64, 128, 196, 256, 512 and we got a better result with the 64 size and by using the CPU with got a faster conversion in few episodes.
 
 
 #### Agent  
 
-For the agent we tested different mini batch size: 64, 128, 196, 256, 512 and we got better results with the 512 size.
-This type of models are very sensitive to initialization weights, by choosing different seed we got beter results, after try and error seed=0 have us a faster conversation rate.  
-For the optimizer we got a better result using simple Adam over simple AdamW.  
+For the agent, we tested different mini-batch size: 64, 128, 196, 256, 512 and we got better results with the 512 size.
+This type of model is very sensitive to initialization weights, by choosing different seed we got better results, after try and error seed=0 have us a faster conversation rate.  
+For the optimizer, we got a better result using pure Adam over simple AdamW.  
+
 
 #### Result  
 
-After increazing the batch size from 128 to 512 and enable the GPU. We were able to achieve an average score of >= 0.5 in 322 episodes, the time to compute was 18.19 minutes. This project required a lot of hyperparameter tunning, we started we a batch size of 128, 25 minutes to compute and 2500 episodes.
+After increasing the batch size from 128 to 512 and enable the GPU. We were able to achieve an average score of >= 0.5 in 322 episodes; the time to compute was 18.19 minutes. This project required a lot of hyperparameter tuning; we started using a batch size of 128, 25 minutes to calculate and 2500 episodes.
 
-
-![image2]( "Rewards plot")
+![image2](https://github.com/esparza83/esparza83-udacity_rl_project3/blob/master/learning.jpg "Rewards plot")
+ 
 
 #### Ideas for Future Work  
 
+One of the side effects of learning by competition is that agents develop behaviors that are unexpected. In AI theory, this is known as agent autocurricula and represents a first row sit to observing how knowledge develops. [1] Multi-Agent Autocurriculum and Emergent Behavior proposed by Open-AI suggested that by adding more complex situations,"e further provide evidence that multi-agent competition may scale better with increasing environment complexity and leads to behavior that centers around far more human-relevant skills than other self-supervised reinforcement learning methods such as intrinsic motivation."  Will be wort it to try to adapt this technique to the current enviroment.
 
+#### References
+[1] EMERGENT TOOL USE FROM MULTI-AGENT AUTOCURRICULA https://arxiv.org/pdf/1909.07528.pdf
 
